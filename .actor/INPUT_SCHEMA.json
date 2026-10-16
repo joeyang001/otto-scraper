@@ -1,0 +1,34 @@
+{
+  "title": "Otto.de Scraper input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQueries": {
+      "title": "Search terms",
+      "type": "array",
+      "description": "Search terms, e.g. [\"laptop\", \"kaffeemaschine\"]. Builds https://www.otto.de/suche/<term>/ URLs.",
+      "editor": "stringList"
+    },
+    "searchUrls": {
+      "title": "Search / category URLs (optional)",
+      "type": "array",
+      "description": "Full Otto.de search or category URLs to scrape instead of / in addition to search terms.",
+      "editor": "stringList"
+    },
+    "maxPages": {
+      "title": "Max pages per search",
+      "type": "integer",
+      "description": "Number of result pages to fetch per search (page param ?page=N).",
+      "default": 5,
+      "minimum": 1
+    },
+    "maxProducts": {
+      "title": "Max products total",
+      "type": "integer",
+      "description": "Overall cap on products pushed to the dataset.",
+      "default": 100000,
+      "minimum": 1
+    }
+  },
+  "required": []
+}

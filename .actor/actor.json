@@ -1,0 +1,35 @@
+{
+  "actorSpecification": 1,
+  "name": "otto-scraper",
+  "title": "Otto.de Scraper — Products, Prices & Ratings",
+  "description": "Scrape Otto.de (Germany's #2 online retailer) search and category pages: product name, brand, price, currency, availability, condition, rating, review count, image, product id, variation id and rank. Paginated, de-duplicated, normalized, with provenance on every row.",
+  "version": "0.0",
+  "buildTag": "latest",
+  "meta": { "templateId": "python-start" },
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "input": "./INPUT_SCHEMA.json",
+  "categories": ["ECOMMERCE"],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Otto.de products output",
+    "description": "Product listings scraped from Otto.de.",
+    "properties": {
+      "results": { "type": "string", "title": "Products", "template": "{{links.apiDefaultDatasetUrl}}/items" }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "product_id": "string", "variation_id": "string", "name": "string", "brand": "string",
+        "price": "number", "currency": "string", "availability": "string", "condition": "string",
+        "rating": "number", "review_count": "integer", "image": "string", "url": "string",
+        "position": "integer", "page": "integer", "search_term": "string", "search_url": "string",
+        "schema_version": "string", "fetched_at": "string"
+      }
+    }
+  }
+}
